@@ -31,6 +31,7 @@ DELETE - {url}/articles/{slug}
 PUT - {url}/articles/{slug}
 POST - {url}/articles/{slug}/favorites
 DELETE - {url}/articles/{slug}/favorites
+GET - {url}/articles/feed
 
 profile
 GET - {url}/profiles/{username}

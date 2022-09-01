@@ -18,6 +18,7 @@ import { User } from '@app/user/decorators/user.decorator';
 import { UserEntity } from '@app/user/user.entity';
 import { ArticleResponseInterface } from '@app/article/types/articleResponse.interface';
 import { ArticlesResponseInterface } from '@app/article/types/articlesResponse.interface';
+import { ProfileResponseInterface } from '@app/profile/types/profileResponse.interface';
 
 @Controller('articles')
 export class ArticleController {
@@ -26,6 +27,12 @@ export class ArticleController {
   @Get()
   async findAll(@User('id') currentUserId: number, @Query() query: any): Promise<ArticlesResponseInterface> {
     return await this.articleService.findAll(currentUserId, query)
+  }
+
+  @Get('feed')
+  @UseGuards(AuthGuard)
+  async getFeed(@User('id') currentUserId: string, @Query() query: any): Promise<ArticlesResponseInterface> {
+    return await this.articleService.getFeed(currentUserId, query)
   }
 
   @Post()
