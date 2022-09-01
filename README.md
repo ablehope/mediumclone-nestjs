@@ -35,3 +35,5 @@ DELETE - {url}/articles/{slug}/favorites
 profile
 GET - {url}/profiles/{username}
 POST - {url}/profiles/{username}/follow
+DELETE - {url}/profiles/{username}/follow
+
